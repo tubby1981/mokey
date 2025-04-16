@@ -1,4 +1,6 @@
-module github.com/ubccr/mokey
+// module github.com/ubccr/mokey
+// replace github.com/ubccr/mokey => /opt/tromp/mokey
+module github.com/tubby1981/mokey
 
 require (
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
@@ -21,6 +23,7 @@ require (
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.9.0
 	github.com/ubccr/goipa v0.0.7
+	github.com/ubccr/mokey v0.6.5
 	github.com/urfave/negroni v1.0.0
 	github.com/valyala/fasthttp v1.56.0
 	golang.org/x/net v0.29.0
