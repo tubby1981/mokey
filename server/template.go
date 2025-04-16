@@ -10,7 +10,8 @@ import (
 	"time"
 	"fmt"
 
-	"github.com/dustin/go-humanize"
+	//"github.com/dustin/go-humanize"
+	//"github.com/goodsign/monday"
 	"github.com/spf13/viper"
 	log "github.com/sirupsen/logrus"
 	"github.com/gofiber/fiber/v2"
@@ -96,7 +97,7 @@ func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, la
 	}
 
 	if lang, exists := dataMap["lang"]; !exists {
-		log.Printf("DEBUG: 'lang' key not found, using default language '%s'", defaultLang)
+		//log.Printf("DEBUG: 'lang' key not found, using default language '%s'", defaultLang)
 		dataMap["lang"] = defaultLang
 	} else {
 		log.Debugf("DEBUG: Found 'lang' key with value: %v", lang)
@@ -129,7 +130,7 @@ func ConfigValueBool(key string) bool {
 }
 
 func TimeAgo(t time.Time) string {
-	return humanize.Time(t)
+	return Dutch.Format(t)
 }
 
 func SplitSSHFP(fp string) []string {

@@ -69,6 +69,10 @@ func LoadTranslations() error {
         return fmt.Errorf("failed to load translations: %w", err)
     }
 
+    // Log default language once after loading
+    defaultLang := getDefaultLanguage()
+    log.Infof("Using default language: %s", defaultLang)
+
     return nil
 }
 
