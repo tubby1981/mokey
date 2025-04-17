@@ -52,17 +52,18 @@ nfpms:
         type: config|noreplace
       - src: ./scripts/nfpm/mokey.env
         dst: /etc/default/mokey
-        type: "config|noreplace"
       - src: ./scripts/nfpm/translations/*
         dst: /etc/mokey/translations/
-        type: "config|noreplace"
+        file_info:
+          owner: mokey
+          group: mokey
       - src: ./scripts/nfpm/mokey.service
         dst: /usr/lib/systemd/system/mokey.service
 
 checksum:
   name_template: 'checksums.txt'
 snapshot:
-  name_template: "{{ incpatch .Version }}-SNAPSHOT-{{.ShortCommit}}"
+  version_template: "{{ incpatch .Version }}-SNAPSHOT-{{.ShortCommit}}"
 changelog:
   sort: desc
   groups:

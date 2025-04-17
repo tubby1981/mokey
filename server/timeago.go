@@ -9,7 +9,6 @@
 //	in 2 minutes
 
 package server
-//package timeago
 
 import (
 	"fmt"

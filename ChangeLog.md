@@ -1,7 +1,8 @@
 # Mokey ChangeLog
 
-## [v0.6.7] - 
+## [v0.6.7] - 2025-04-17
 - Added `timeago` function with support for English, Portuguese, Spanish, Dutch, French, German, and Turkish. Based on [xeonx/timeago](https://github.com/xeonx/timeago).
+- Some translations in the email templates were not working properly. This has been fixed.
 
 ## [v0.6.6] - 2025-04-16
 - Add config option to hide registratrion link: enable_user_signup true/false

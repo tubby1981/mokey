@@ -11,8 +11,6 @@ require (
 	github.com/gofiber/storage/memory/v2 v2.0.1
 	github.com/gofiber/storage/redis/v3 v3.1.2
 	github.com/gofiber/storage/sqlite3/v2 v2.1.1
-	// github.com/dustin/go-humanize v1.0.1
-	github.com/goodsign/monday v1.0.2
 	github.com/gorilla/mux v1.8.1
 	github.com/mileusna/useragent v1.3.5
 	github.com/ory/hydra-client-go v1.10.6

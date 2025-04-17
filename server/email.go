@@ -109,53 +109,66 @@ func (e *Emailer) SendWelcomeEmail(user *ipa.User, ctx *fiber.Ctx) error {
 }
 
 func (e *Emailer) SendMFAChangedEmail(enabled bool, user *ipa.User, ctx *fiber.Ctx) error {
-	verb := "Disabled"
-	if enabled {
-		verb = "Enabled"
-	}
-	event := Translate("", "email_template.two_factor_auth_event") + verb
+        var verbKey string
+        if enabled {
+                verbKey = "email_template.two_factor_auth_enabled"
+        } else {
+                verbKey = "email_template.two_factor_auth_disabled"
+        }
 
-	vars := map[string]interface{}{
-		"event": event,
-	}
+        verb := Translate("", verbKey)
+        event := Translate("", "email_template.two_factor_auth_event") + verb
 
-	return e.sendEmail(user, ctx, event, "account-updated", vars)
+        vars := map[string]interface{}{
+                "event": event,
+        }
+
+        return e.sendEmail(user, ctx, event, "account-updated", vars)
 }
 
-func (e *Emailer) SendSSHKeyUpdatedEmail(added bool, user *ipa.User, ctx *fiber.Ctx) error {
-	verb := "removed"
-	if added {
-		verb = "added"
-	}
-	event := Translate("", "email_template.ssh_key_event") + verb
+func (e Emailer) SendSSHKeyUpdatedEmail(added bool, user *ipa.User, ctx *fiber.Ctx) error {
+        var verbKey string
+        if added {
+                verbKey = "email_template.ssh_key_added"
+        } else {
+                verbKey = "email_template.ssh_key_removed"
+        }
 
-	vars := map[string]interface{}{
-		"event": event,
-	}
+        verb := Translate("", verbKey)
+        event := Translate("", "email_template.ssh_key_event") + verb
 
-	return e.sendEmail(user, ctx, event, "account-updated", vars)
+        vars := map[string]interface{}{
+                "event": event,
+        }
+        return e.sendEmail(user, ctx, event, "account-updated", vars)
 }
 
 func (e *Emailer) SendOTPTokenUpdatedEmail(added bool, user *ipa.User, ctx *fiber.Ctx) error {
-	verb := "removed"
-	if added {
-		verb = "added"
-	}
+        var verbKey string
+        if added {
+                verbKey = "email_template.otp_token_added"
+        } else {
+                verbKey = "email_template.otp_token_removed"
+        }
+
+        verb := Translate("", verbKey)
 	event := Translate("", "email_template.otp_token_event") + verb
 
-	vars := map[string]interface{}{
-		"event": event,
-	}
+        vars := map[string]interface{}{
+                "event": event,
+        }
 
-	return e.sendEmail(user, ctx, event, "account-updated", vars)
+        return e.sendEmail(user, ctx, event, "account-updated", vars)
 }
 
 func (e *Emailer) SendPasswordChangedEmail(user *ipa.User, ctx *fiber.Ctx) error {
-	vars := map[string]interface{}{
-		"event": Translate("", "email_template.password_changed_event"),
-	}
+        event := Translate("", "email_template.password_changed_event")
 
-	return e.sendEmail(user, ctx, Translate("", "email_template.account_updated_subject"), "account-updated", vars)
+        vars := map[string]interface{}{
+                "event": event,
+        }
+
+        return e.sendEmail(user, ctx, Translate("", "email_template.account_updated_subject"), "account-updated", vars)
 }
 
 func (e *Emailer) quotedBody(body []byte) ([]byte, error) {

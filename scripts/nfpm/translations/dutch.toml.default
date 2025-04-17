@@ -1,4 +1,4 @@
-[common]
+[common]o
 add = "Toevoegen"
 cancel = "Annuleren"
 captcha_image = "Captcha-afbeelding"
@@ -60,7 +60,7 @@ account_updated_security_notice_part2 = " apparaat met "
 account_updated_security_notice_part3 = ". Als je geen account hebt aangemaakt, negeer dan deze e-mail en "
 account_updated_security_notice_part4 = "neem contact op met support "
 account_updated_security_notice_part5 = " of bekijk onze "
-account_updated_security_notice_help = "helpdocumentatie"
+account_updated_security_notice_help = "documentatie"
 account_updated_security_notice_part6 = " als je vragen hebt."
 account_updated_security_notice_contact = "neem contact op met de support "
 account_updated_signature = "Bedankt,"
@@ -102,6 +102,12 @@ two_factor_auth_event = "Twee-factor-authenticatie "
 ssh_key_event = "SSH-sleutel "
 otp_token_event = "OTP-token "
 password_changed_event = "Wachtwoord gewijzigd"
+ssh_key_added = "toegevoegd"
+ssh_key_removed = "verwijderd"
+otp_token_added = "toegevoegd"
+otp_token_removed = "verwijderd"
+two_factor_auth_enabled = "Ingeschakeld"
+two_factor_auth_disabled = "Uitgeschakeld"
 
 [error]
 title = "Foutmeldingen"
