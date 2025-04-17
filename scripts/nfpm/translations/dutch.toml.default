@@ -1,4 +1,4 @@
-[common]o
+[common]
 add = "Toevoegen"
 cancel = "Annuleren"
 captcha_image = "Captcha-afbeelding"
