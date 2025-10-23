@@ -27,7 +27,8 @@ func checkPassword(pass string) error {
 
 	l := len([]rune(pass))
 	if l < minLength {
-		return fmt.Errorf("Password does not conform to policy. Min length: %d", minLength)
+	    // Translators: “Min length: %d” – keep the placeholder for the length
+	    return fmt.Errorf(Translate("", "password.min_length"), minLength)
 	}
 
 	numCategories := 0
@@ -65,7 +66,8 @@ func checkPassword(pass string) error {
 	}
 
 	if numCategories < minClasses {
-		return fmt.Errorf("Password does not conform to policy. Try including both upper/lower case, numbers, and other characters")
+		// Translators: “Password does not conform to policy…” – generic message
+		return fmt.Errorf(Translate("", "password.policy_not_met"))
 	}
 
 	return nil
@@ -73,15 +75,18 @@ func checkPassword(pass string) error {
 
 func validatePassword(password, passwordConfirm string) error {
 	if password == "" {
-		return errors.New("Please enter a new password")
+		// Translators: Prompt user to enter a new password
+		return errors.New(Translate("", "password.enter_new"))
 	}
 
 	if passwordConfirm == "" {
-		return errors.New("Please confirm your new password")
+		// Translators: Prompt user to confirm the new password
+		return errors.New(Translate("", "password.confirm_new"))
 	}
 
 	if password != passwordConfirm {
-		return errors.New("Password do not match. Please confirm your password.")
+		// Translators: Prompt user to confirm the new password
+		return errors.New(Translate("", "password.confirm_new"))
 	}
 
 	if err := checkPassword(password); err != nil {
@@ -93,11 +98,13 @@ func validatePassword(password, passwordConfirm string) error {
 
 func validatePasswordChange(passwordCurrent, password, passwordConfirm string) error {
 	if passwordCurrent == "" {
-		return errors.New("Please enter you current password")
+		// Translators: Prompt user to enter current password
+		return errors.New(Translate("", "password.enter_current"))
 	}
 
 	if passwordCurrent == passwordConfirm {
-		return errors.New("Current password is the same as new password. Please set a different password.")
+		// Translators: Current password equals new password
+		return errors.New(Translate("", "password.same_as_new"))
 	}
 
 	return validatePassword(password, passwordConfirm)
@@ -121,7 +128,8 @@ func (r *Router) PasswordChange(c *fiber.Ctx) error {
 	otp := c.FormValue("otpcode")
 
 	if user.OTPOnly() && otp == "" {
-		vars["message"] = "Please enter the 6-digit OTP code from your mobile app"
+		// Translators: OTP prompt for users that only use OTP
+		vars["message"] = Translate("", "password_change.otp_help")
 		return c.Render("password.html", vars)
 	}
 
@@ -144,7 +152,7 @@ func (r *Router) PasswordChange(c *fiber.Ctx) error {
 				"username": user.Username,
 				"error":    err.Error(),
 			}).Error("Failed to change password")
-			vars["message"] = "Fatal system error"
+			vars["message"] = Translate("", "account.system_error")
 		}
 	} else {
 		err = r.emailer.SendPasswordChangedEmail(user, c)

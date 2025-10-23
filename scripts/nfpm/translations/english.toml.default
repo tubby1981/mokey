@@ -158,7 +158,7 @@ enable_prompt_title = "Enable Token?"
 enter_6_digit_code_help = "Enter the 6-digit code from your mobile app"
 invalid_6_digit_code = "Invalid 6-digit code. Please try again."
 failed_to_verify_token = "Failed to verify token."
-header = "OPT Tokens"
+header = "OTP Tokens"
 new_token_button = "New Token"
 no_tokens_found = "No OTP Tokens Found"
 qr_code_alt = "Scan QR Code"
@@ -168,6 +168,15 @@ token_description_help = "Enter the token description (e.g., the device it's use
 token_description_label = "Token Description"
 token_description_placeholder = "My Phone"
 invalid_otp = "Invalid OTP code."
+
+[password]
+enter_new = "Please enter a new password"
+confirm_new = "Please confirm your new password"
+mismatch = "Passwords do not match. Please confirm your password."
+enter_current = "Please enter your current password"
+same_as_new = "Current password is the same as new password. Please set a different password."
+min_length = "Password does not conform to policy. Min length: %d"
+policy_not_met = "Password does not conform to policy. Try including both upper/lower case, numbers, and other characters"
 
 [password_change]
 title = "Change Password"

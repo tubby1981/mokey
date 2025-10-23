@@ -158,7 +158,7 @@ enable_prompt_title = "Token inschakelen?"
 enter_6_digit_code_help = "Voer de 6-cijferige code in uit uw mobiele app"
 invalid_6_digit_code = "Ongeldige 6-cijferige code. Probeer het opnieuw."
 failed_to_verify_token = "Verificatie van token mislukt."
-header = "OPT Tokens"
+header = "OTP Tokens"
 no_tokens_found = "Geen OTP-tokens gevonden"
 new_token_button = "Nieuw Token"
 qr_code_alt = "Scan QR-code"
@@ -168,6 +168,15 @@ token_description_help = "Voer de beschrijving van het token in (bijvoorbeeld he
 token_description_label = "Tokenbeschrijving"
 token_description_placeholder = "Mijn telefoon"
 invalid_otp = "Ongeldige OTP-code."
+
+[password]
+enter_new = "Voer een nieuw wachtwoord in"
+confirm_new = "Bevestig je nieuwe wachtwoord"
+mismatch = "Wachtwoorden komen niet overeen. Bevestig je wachtwoord."
+enter_current = "Voer je huidige wachtwoord in"
+same_as_new = "Het huidige wachtwoord is hetzelfde als het nieuwe wachtwoord. Kies een ander wachtwoord."
+min_length = "Wachtwoord voldoet niet aan het beleid. Minimumlengte: %d"
+policy_not_met = "Wachtwoord voldoet niet aan het beleid. Probeer zowel hoofd‑/kleine letters, cijfers en speciale tekens te gebruiken."
 
 [password_change]
 title = "Wachtwoord Wijzigen"
